@@ -1,0 +1,47 @@
+{{>parcials/header}}
+
+    {{#showWelcome}}
+        Opa, tudo bem {{user.name}}?
+    {{/showWelcome}}
+    <br><br>
+    {{#maiorIdade}}
+        Você é de maior, tem {{user.age}} anos!
+    {{/maiorIdade}}
+    {{^maiorIdade}}
+        Você é de menor, tem {{user.age}} anos!
+    {{/maiorIdade}}
+    
+    <hr/>
+
+    <ul>
+    {{#products}}
+        {{#disponivel}}
+            {{>parcials/productItem}}
+        {{/disponivel}}
+    {{/products}}
+    </ul>
+
+    <hr/>
+    <br>
+    Produtos a partir de R$10
+
+    <ul>
+    {{#expensiveList}}
+        {{#disponivel}}
+            {{>parcials/productItem}}
+        {{/disponivel}}
+    {{/expensiveList}}
+    </ul>
+
+    <hr/>
+
+    <ul>
+    {{#lista}}
+        <li>{{.}}</li>
+    {{/lista}}
+     {{^lista}}
+        Não foi encontrado nenhuma tarefa!
+    {{/lista}}
+    </ul>
+
+{{>parcials/footer}}
