@@ -11,7 +11,6 @@ export const home = async (req: Request, res: Response)=>{
         console.log("Erro conexao com banco: "+error);
     }
 
-    res.render('pages/home');
     let user = {
         name: 'Kevin',
         age: 18
