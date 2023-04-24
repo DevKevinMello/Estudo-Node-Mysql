@@ -1,14 +1,13 @@
-import {Model, DataTypes} from 'sequelize';
-import {sequelize} from '../instances/mysql';
-import { timeStamp } from 'console';
+import { Model, DataTypes } from 'sequelize';
+import { sequelize } from '../instances/mysql';
 
-export interface UserInatance extends Model {
-    id: number,
-    name: string,
-    age: number
+export interface UserInstance extends Model {
+    id: number;
+    name: string;
+    age: number;
 }
 
-export const User = sequelize.define<UserInatance>("User",{
+export const User = sequelize.define<UserInstance>("User", {
     id: {
         primaryKey: true,
         type: DataTypes.INTEGER
@@ -16,13 +15,11 @@ export const User = sequelize.define<UserInatance>("User",{
     name: {
         type: DataTypes.STRING
     },
-    ages: {
+    age: {
         type: DataTypes.INTEGER,
         defaultValue: 18
     }
-},{
-    tableName: 'Users',
+}, {
+    tableName: 'users',
     timestamps: false
-    //timeStamps ele assume que tem 2 colunas no banco, 
-    //data criou e data atualizou o registro
 });

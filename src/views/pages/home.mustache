@@ -1,47 +1,59 @@
-{{>parcials/header}}
+{{>partials/header}}
 
-    {{#showWelcome}}
-        Opa, tudo bem {{user.name}}?
-    {{/showWelcome}}
-    <br><br>
-    {{#maiorIdade}}
-        Você é de maior, tem {{user.age}} anos!
-    {{/maiorIdade}}
-    {{^maiorIdade}}
-        Você é de menor, tem {{user.age}} anos!
-    {{/maiorIdade}}
-    
-    <hr/>
+Opa {{name}} {{lastName}}, tudo bem?
+{{#showOld}}
+    Como vai a vida?
+{{/showOld}}
+{{^showOld}}
+    Beleza?
+{{/showOld}}
 
-    <ul>
+<hr/>
+
+<fieldset>
+    <legend>Novo Usuário</legend>
+    <form method="POST" action="/novousuario">
+        <input type="text" name="name" placeholder="Digite um nome" /><br/><br/>
+        <input type="text" name="age" placeholder="Digite uma idade" /><br/><br/>
+        <input type="submit" value="Inserir Usuário" />
+    </form>
+</fieldset>
+
+<h2>Usuários do banco</h2>
+<ul>
+    {{#users}}
+        <li>{{name}} - Idade: {{age}}</li>
+    {{/users}}
+</ul>
+
+
+
+
+<hr/>
+<h2>Produtos</h2>
+<ul>
     {{#products}}
-        {{#disponivel}}
-            {{>parcials/productItem}}
-        {{/disponivel}}
+        {{>partials/productItem}}
     {{/products}}
-    </ul>
+</ul>
 
-    <hr/>
-    <br>
-    Produtos a partir de R$10
+<hr/>
+<h2>Produtos a partir de R$ 12</h2>
+<ul>
+    {{#expensives}}
+        {{>partials/productItem}}
+    {{/expensives}}
+</ul>
 
-    <ul>
-    {{#expensiveList}}
-        {{#disponivel}}
-            {{>parcials/productItem}}
-        {{/disponivel}}
-    {{/expensiveList}}
-    </ul>
+<hr/>
 
-    <hr/>
-
-    <ul>
-    {{#lista}}
+<ul>
+    {{#frasesDoDia}}
         <li>{{.}}</li>
-    {{/lista}}
-     {{^lista}}
-        Não foi encontrado nenhuma tarefa!
-    {{/lista}}
-    </ul>
+    {{/frasesDoDia}}
+    {{^frasesDoDia}}
+        Não há frases motivacionais hoje.
+    {{/frasesDoDia}}
+</ul>
 
-{{>parcials/footer}}
+{{>partials/footer}}

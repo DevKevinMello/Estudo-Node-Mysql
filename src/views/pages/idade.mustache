@@ -1,14 +1,13 @@
-{{>parcials/header}}
+{{>partials/header}}
 
 <h2>Qual ano você nasceu?</h2>
 <form method="POST" action="/idade-resultado">
-    <input type="text" name="ano" />
+    <input type="number" name="ano" placeholder="Digite o ano de nascimento" /><br/>
     <input type="submit" value="Enviar" />
 </form>
 
 {{#mostrarIdade}}
-    <hr/>
-    você tem {{idade}} anos!
+    Você tem {{idade}} anos.
 {{/mostrarIdade}}
 
-{{>parcials/footer}}
+{{>partials/footer}}

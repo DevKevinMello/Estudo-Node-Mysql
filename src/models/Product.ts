@@ -1,22 +1,20 @@
 type Product = {
     title: string,
-    price: number,
-    disponivel: boolean
-}
+    price: number
+};
 
 const data: Product[] = [
-    {title: 'Caneta', price: 15, disponivel: false},
-    {title: 'Lapiseira', price: 10, disponivel: true},
-    {title: 'Caneta Cara', price: 20, disponivel: true},
-    {title: 'Borracha', price: 7, disponivel: true}
-]
+    {title: 'Produto X', price: 10},
+    {title: 'Produto Y', price: 15},
+    {title: 'Produto W', price: 20},
+    {title: 'Produto G', price: 5}
+];
 
 export const Product = {
     getAll: (): Product[] => {
         return data;
     },
-    getFromPriceAfter: (price:number): Product[] => {
-        return data.filter(item => item.price >= price && item.disponivel);
-    },
-    
-}
+    getFromPriceAfter: (price: number): Product[] => {
+        return data.filter(item => item.price >= price);
+    }
+};
