@@ -5,6 +5,21 @@ import { Product } from '../models/Product';
 import { User } from '../models/User';
 
 export const home = async (req: Request, res: Response)=>{
+
+    const [ usuario, created ] = await User.findOrCreate({
+        where: { age: 'Kevin' },
+        defaults: {
+            age: 80
+        }
+    });
+    if(created){
+        console.log("Usuário criado com sucesso");
+    }else{
+        console.log("Achamos o usuário");
+    }
+    console.log("Nome: ",usuario.name);
+
+    
     let users = await User.findAll();
     
     let age: number = 90;
